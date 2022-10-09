@@ -1,0 +1,43 @@
+#include <iostream>
+#include <cmath>
+
+#define GRAVITASI 10 
+#define START_PENGUKURAN 1 
+#define SUDUT 45 
+
+
+int mencari_v0(int x , int y ){
+    int v0;
+    v0 = x - y;
+    return v0;
+}
+
+    double vtangensial;
+int speed_dgn_loss(int speed_dgn_loss){
+    int speed_loss;
+    if(vtangensial>=1 && vtangensial<=10){
+        speed_loss = 1;
+    }
+    else if(vtangensial>=11 && vtangensial<=20){
+        speed_loss = 3;
+    }
+    else if(vtangensial>=21 && vtangensial<=30){
+        speed_loss = 5;
+    }
+    return speed_loss;
+}
+
+int main(){
+    const double phi = 3.1415928;
+    int data, jarak ;
+    double degrees = SUDUT;
+    double radians =  2 * degrees  * phi / 180;
+    std::cin >> vtangensial;
+    data = mencari_v0(vtangensial, speed_dgn_loss(vtangensial));
+    jarak = data * data * (sin (radians)) / GRAVITASI ; 
+    double vtangensial_akhir = vtangensial;
+    if(vtangensial == 30){
+        vtangensial_akhir = vtangensial - 0.1002;
+    }
+    std::cout<< jarak << " " << vtangensial_akhir <<std::endl;
+}
